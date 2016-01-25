@@ -13,9 +13,13 @@ describe Oystercard do
     it { is_expected.to respond_to(:top_up).with(1).argument }
 
     it 'adds money to card balance' do
-      # oystercard.top_up 10
-      # expect(oystercard.balance).to eq 10
       expect{ oystercard.top_up 10 }.to change{ oystercard.balance }.by 10
     end
+
+    it 'throws an exception if balance limit is exceeded' do
+      message = "Max balance is £#{described_class::MAX_BALANCE}"
+      expect{ oystercard.top_up(1 + described_class::MAX_BALANCE)}.to raise_error message
+    end
+
   end
 end
