@@ -5,7 +5,6 @@ require 'Oystercard'
 # BASICALLY, WE NEED A HELLISH DAY OF MOCKING AND STUBBING
 
 describe Oystercard do
-
   subject(:oystercard) {described_class.new }
   let(:entry_station) {double :station}
   let(:exit_station) {double :station}
