@@ -20,6 +20,7 @@ class Journey
     @current_journey[:exit] = exit_station
   end
 
+
   def calculate_fare
     if completed?
       MINIMUM_CHARGE
